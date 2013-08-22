@@ -1,5 +1,15 @@
 /*
  * This is a Double Linked List implementation in Javascript
+ * This is soley for academic purposes
+ *
+ * DO NOT USE THIS IN A REAL WORLD CONTEXT!!!
+ * What I mean to say is the Javascript default Array is
+ * implemented very efficiently in most browsers,
+ * specifically in V8, see:
+ * http://stackoverflow.com/questions/8423493/what-is-the-performance-of-objects-arrays-in-javascript-specifically-for-googl
+ * 
+ * just use that if you need a Double Linked List
+ * but you probably already knew that...
  */
 function DoubleLinkedList() {
     this.len = 0;
@@ -52,7 +62,7 @@ DoubleLinkedList.prototype = {
      * traditional doubly linked lists have insert time of O(1) 
      * while this is O(n)
      * A quick google search shows this is a common limitation of
-     * Javascript Doubly Linked List implementations
+     * most Javascript Doubly Linked List implementations
      */
     insert: function(index, val) {
         if (index === 0) {
@@ -142,7 +152,7 @@ DoubleLinkedList.prototype = {
      * traditional doubly linked lists have remove time of O(1) 
      * while this is O(n)
      * A quick google search shows this is a common limitation of
-     * Javascript Doubly Linked List implementations
+     * most Javascript Doubly Linked List implementations
      */
     remove: function(index) {
         if (index === 0) {
@@ -160,6 +170,9 @@ DoubleLinkedList.prototype = {
             var val = hold.val;
             hold.prev.next = hold.next;
             hold.next.prev = hold.prev;
+            
+            
+            /* So much reliance on garbage collection */
 
             this.len -= 1;
             return val;

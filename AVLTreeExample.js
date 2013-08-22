@@ -1,32 +1,33 @@
 var tree = new avlTree();
 
-function update() {
+function update(node, level) {
 	var holder = document.getElementById('elements');
 	holder.innerHTML = "";
-	
-	var h = tree.root.height;
-    var i;
+    
+    if(
+    
     var j;
-	for(i=0; i< h; i++) {
-        for(j=0; j<h; j++) {
-            holder.innerHTML = holder.innerHTML + "  ";
-        }
-        holder.innerHTML = holder.innerHTML +" \n";
-		holder.innerHTML = holder.innerHTML + "  ";
-	}
+    for(j = 0; j< i; j++) {
+        holder.innerHTML = holder.innerHTML + "    "
+    }
+    holder.innerHTML = "+-- " + node.val + "\n";
+}
+
+function updateRec(node, height, text) {
+
 }
 
 function btnAdd() {
 	list.add(document.getElementById('val').value);
-	update();
+	update(tree.root);
 }
 
 function btnGet() {
 	alert(list.get(document.getElementById('index').value));
-	update();
+	update(tree.root);
 }
 
 function btnRemove() {
 	alert(list.remove(document.getElementById('index').value));
-	update();
+	update(tree.root);
 }
